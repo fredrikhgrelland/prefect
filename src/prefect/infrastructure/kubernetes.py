@@ -465,6 +465,7 @@ class KubernetesJob(Infrastructure):
                 logs = client.read_namespaced_pod_log(
                     pod.metadata.name,
                     self.namespace,
+                    container="prefect-job",
                     follow=True,
                     _preload_content=False,
                 )
